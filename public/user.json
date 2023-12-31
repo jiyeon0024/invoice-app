@@ -1,0 +1,51 @@
+[
+  {
+    "id": "RT3080",
+
+    "clientName": "Jensen Huang",
+    "clientEmail": "jensenh@mail.com",
+    "password": "Password123!"
+  },
+  {
+    "id": "XM9141",
+
+    "clientName": "Alex Grim",
+    "clientEmail": "alexgrim@mail.com",
+    "password": "Password123!"
+  },
+  {
+    "id": "RG0314",
+
+    "clientName": "John Morrison",
+    "clientEmail": "jm@myco.com",
+    "password": "Password123!"
+  },
+  {
+    "id": "RT2080",
+
+    "clientName": "Alysa Werner",
+    "clientEmail": "alysa@email.co.uk",
+    "password": "Password123!"
+  },
+  {
+    "id": "AA1449",
+
+    "clientName": "Mellisa Clarke",
+    "clientEmail": "mellisa.clarke@example.com",
+    "password": "Password123!"
+  },
+  {
+    "id": "TY9141",
+
+    "clientName": "Thomas Wayne",
+    "clientEmail": "thomas@dc.com",
+    "password": "Password123!"
+  },
+  {
+    "id": "FV2353",
+
+    "clientName": "Anita Wainwright",
+    "clientEmail": "anita@gmail.com",
+    "password": "Password123!"
+  }
+]
