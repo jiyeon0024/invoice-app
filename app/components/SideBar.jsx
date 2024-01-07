@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function SideBar() {
   return (
-    <div className="bg-[#1E2139] w-[5%] flex flex-col justify-between items-center rounded-r-3xl h-full sticky">
+    <div className="bg-[#1E2139] w-[5%] flex flex-col justify-between items-center rounded-r-3xl h-screen sticky">
       <div className="relative ">
         <svg
           className="w-full h-full"
@@ -38,7 +38,7 @@ function SideBar() {
           </g>
         </svg>
         <Image
-          src={"./assets/logo.svg"}
+          src={"/assets/logo.svg"}
           width={40}
           height={40}
           className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"

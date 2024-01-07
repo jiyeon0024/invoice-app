@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { months } from "@/util/constants/months";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-function InvoiceCard({ invoice }) {
+function InvoiceCard({ invoice, handleDetail }) {
   const [month, setMonth] = useState("");
   const [total, setTotal] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     months.forEach((i) => {
       if (invoice.paymentDue.slice(5, 7) === i.num) {
         return setMonth(i.month);
       }
-    });
+    }, []);
 
     if (
       invoice.total.toString().includes(".") &&
@@ -29,7 +32,7 @@ function InvoiceCard({ invoice }) {
   }, []);
 
   return (
-    <div className=" w-full  bg-[#1E2139]  rounded-md mt-5">
+    <div className=" w-full  bg-[#1E2139] border border-[#1E2139] rounded-lg mt-5 hover:border hover:border-[#7C5DFA] cursor-pointer">
       <ul className="flex items-center justify-start p-3  ">
         <li className="w-[20%] p-3 font-extrabold">
           <span className="text-[#7E88C3]">#</span>
@@ -65,14 +68,17 @@ function InvoiceCard({ invoice }) {
             {invoice.status.slice(0, 1).toUpperCase() + invoice.status.slice(1)}
           </span>
         </li>
-        <li className="w-[5%] p-3  flex justify-end items-center">
+        <Link
+          className="w-[5%] p-3  flex justify-end items-center"
+          href={"/invoice/detail/" + invoice.id}
+        >
           <Image
             src={"./assets/icon-arrow-right.svg"}
             width={10}
             height={10}
             alt="icon"
           />
-        </li>
+        </Link>
       </ul>
     </div>
   );

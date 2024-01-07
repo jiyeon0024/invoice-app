@@ -1,8 +1,6 @@
-"use client";
-import { data } from "autoprefixer";
 import { create } from "zustand";
 
-const useInvoicesStore = create((set) => ({
+export const useInvoicesStore = create((set) => ({
   data: [],
   copyData: [],
 
@@ -24,7 +22,7 @@ const useInvoicesStore = create((set) => ({
         let invoices = localStorage.getItem("invoices");
         return JSON.parse(invoices);
       }
-      const res = await fetch("./data.json");
+      const res = await fetch("/data.json");
       const val = await res.json();
       console.log(val);
       return set((state) => ({ data: val, copyData: val }));
@@ -33,4 +31,3 @@ const useInvoicesStore = create((set) => ({
     }
   },
 }));
-export { useInvoicesStore };
