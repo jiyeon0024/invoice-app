@@ -3,6 +3,7 @@ import Image from "next/image";
 import { months } from "@/util/constants/months";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useInvoicesStore } from "@/stores/invoices";
 
 function InvoiceCard({ invoice, handleDetail }) {
   const [month, setMonth] = useState("");
@@ -11,19 +12,19 @@ function InvoiceCard({ invoice, handleDetail }) {
 
   useEffect(() => {
     months.forEach((i) => {
-      if (invoice.paymentDue.slice(5, 7) === i.num) {
+      if (invoice.paymentDue?.slice(5, 7) === i.num) {
         return setMonth(i.month);
       }
     }, []);
 
     if (
-      invoice.total.toString().includes(".") &&
-      invoice.total.toString().split(".")[1]?.length > 1
+      invoice.total?.toString().includes(".") &&
+      invoice.total?.toString().split(".")[1]?.length > 1
     ) {
       setTotal(invoice.total.toLocaleString("en-US"));
     } else if (
-      invoice.total.toString().includes(".") &&
-      invoice.total.toString().split(".")[1]?.length === 1
+      invoice.total?.toString().includes(".") &&
+      invoice.total?.toString().split(".")[1]?.length === 1
     ) {
       setTotal(invoice.total.toLocaleString("en-US") + "0");
     } else {
@@ -40,9 +41,9 @@ function InvoiceCard({ invoice, handleDetail }) {
         </li>
         <li className="w-[20%] p-3 flex justify-center items-center gap-2">
           <span>Due</span>
-          <span>{invoice.paymentDue.slice(8)}</span>
+          <span>{invoice.paymentDue?.slice(8)}</span>
           <span>{month}</span>
-          <span>{invoice.paymentDue.slice(0, 4)}</span>
+          <span>{invoice.paymentDue?.slice(0, 4)}</span>
         </li>
         <li className="w-[20%] p-3">{invoice.clientName}</li>
         <li className="w-[20%] p-3 font-extrabold">£ {total}</li>
@@ -65,7 +66,8 @@ function InvoiceCard({ invoice, handleDetail }) {
             }
           ></div>
           <span>
-            {invoice.status.slice(0, 1).toUpperCase() + invoice.status.slice(1)}
+            {invoice.status?.slice(0, 1).toUpperCase() +
+              invoice.status?.slice(1)}
           </span>
         </li>
         <Link

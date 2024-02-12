@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ placehollder, type, id, name, onChange, value }) {
+function Input({ placeholder, type, id, name, onChange, value, className }) {
   return (
     <input
       id={id}
@@ -8,8 +8,8 @@ function Input({ placehollder, type, id, name, onChange, value }) {
       onChange={onChange}
       value={value}
       type={type}
-      placeholder={placehollder}
-      className="w-full  bg-[#252945]  rounded border-none outline-none font-bold tracking-[-0.25px] text-white p-3 focus:caret-[#7C5DFA]"
+      placeholder={placeholder}
+      className={` ${className} w-full  bg-[#252945]  rounded  outline-none border border-[#252945]  font-bold tracking-[-0.25px] text-white p-3 focus:caret-[#7C5DFA] focus:border focus:border-[#7C5DFA] `}
     />
   );
 }

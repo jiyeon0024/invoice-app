@@ -12,7 +12,8 @@ const Layout = ({ children }) => {
   const { loggedIn } = useAuthContext();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [fetchData] = useInvoicesStore((state) => [state.fetchData]);
+  // const [fetchData] = useInvoicesStore((state) => [state.fetchData]);
+  const { fetchData } = useInvoicesStore();
 
   useEffect(() => {
     if (!loggedIn) {
@@ -31,9 +32,12 @@ const Layout = ({ children }) => {
       <Loading />
     </div>
   ) : (
-    <div className="bg-[#141625] flex w-screen  text-white  ">
-      <SideBar />
-      <div className=" mt-20 container m-auto w-[60%]">{children}</div>
+    <div className="bg-[#141625] flex overflow-y-scroll  text-white    ">
+      <div className=" w-[5%] h-screen  ">
+        <SideBar />
+      </div>
+
+      <div className="   w-full ">{children}</div>
     </div>
   );
 };
